@@ -3,12 +3,12 @@ import { createTask, deleteTask, getTask, getTasks, updateTask } from '../contro
 import { validate } from '../middleware/validate-schema';
 import { taskInputSchema } from '../validations/task-validation';
 
-const taskRouter = exporess.Router();
+const TaskRouter = exporess.Router();
 
-taskRouter.post('/task', validate(taskInputSchema), createTask);
-taskRouter.get('/task', getTasks);
-taskRouter.get('/task/:taskId', getTask);
-taskRouter.put('/task/:taskId', validate(taskInputSchema), updateTask);
-taskRouter.delete('/task/:taskId', deleteTask);
+TaskRouter.post('/task', validate(taskInputSchema), createTask);
+TaskRouter.get('/task', getTasks);
+TaskRouter.get('/task/:taskId', getTask);
+TaskRouter.put('/task/:taskId', validate(taskInputSchema), updateTask);
+TaskRouter.delete('/task/:taskId', deleteTask);
 
-export default taskRouter;
+export default TaskRouter;
