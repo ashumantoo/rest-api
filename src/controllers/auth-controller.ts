@@ -210,3 +210,16 @@ export const resetPassword = async (req: Request, res: Response, next: NextFunct
     next(error);
   }
 }
+
+export const logout = (req: Request, res: Response, next: NextFunction) => {
+  try {
+    res.clearCookie('access_token', { httpOnly: true });
+    res.status(200).send({
+      success: true,
+      status: 200,
+      message: 'Logged out successfully'
+    });
+  } catch (error) {
+    next(error);
+  }
+}

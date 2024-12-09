@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { createBook, deleteBook, getBook, getBooks, updateBook } from "../controllers/book-controller";
-import { requiresSignIn } from "../middleware/auth-middleware";
+import { isAdmin, requiresSignIn } from "../middleware/auth-middleware";
 
 const BookRouter = Router();
 
-BookRouter.post('/book', createBook);
+BookRouter.post('/book', requiresSignIn, isAdmin, createBook);
 BookRouter.get('/book', requiresSignIn, getBooks);
-BookRouter.get('/book/:id', getBook);
-BookRouter.put('/book/:id', updateBook);
-BookRouter.delete('/book/:id', deleteBook);
+BookRouter.get('/book/:id', requiresSignIn, getBook);
+BookRouter.put('/book/:id', requiresSignIn, isAdmin, updateBook);
+BookRouter.delete('/book/:id', requiresSignIn, isAdmin, deleteBook);
 
 export default BookRouter;
