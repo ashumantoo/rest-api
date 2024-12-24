@@ -26,6 +26,7 @@ mongoose.connect(
     console.log(err);
   });
 
+//Cors, request url parsing and morgan middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
