@@ -10,6 +10,7 @@ import RoleRouter from './src/routes/role-route';
 import AuthRouter from './src/routes/auth-route';
 import TaskRouter from './src/routes/task-route';
 import BookRouter from './src/routes/book-route';
+import StudentRouter from './src/routes/student-route';
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/api', AuthRouter);
 app.use('/api', UserRouter);
 app.use('/api', TaskRouter);
 app.use('/api', BookRouter);
+app.use('/api', StudentRouter);
 
 //error handler at the app level
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
